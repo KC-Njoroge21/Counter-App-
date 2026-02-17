@@ -16,7 +16,7 @@ const App = () => {
   }
 
   const addbyHandler = () => {
-    dispatch(actions.addby())
+    dispatch(actions.addby(10))
   }
 
   return (
