@@ -1,7 +1,25 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { configureStore, createSlice } from "@reduxjs/toolkit";
 
-const reducerFn = (state = {counter: 0}, action) => {
+const counterSlice = createSlice({
+  name: "counter",
+  initialState: {counter: 0},
+  reducers: {
+    increment (state, action)  {
+      state.counter += 1;
+    },
+    decrement (state, action)  {
+      state.counter -= 1;
+    },
+    addby (state, action) {
+      state.counter += 10;
+    }
+  }
+})
 
-}
+export const actions = counterSlice.actions;
+const store = configureStore({
+  reducer: counterSlice.reducer
+})
 
-const store = configureStore(reducerFn)
+export { store }
+ 
